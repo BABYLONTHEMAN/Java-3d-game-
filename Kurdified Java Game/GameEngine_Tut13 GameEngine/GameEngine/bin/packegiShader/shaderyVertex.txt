@@ -1,0 +1,26 @@
+#version 400 core
+
+in vec3 shwenakan;
+in vec2 pekhatayHawriz;
+in vec3 normal;
+
+out vec2 gaiandnyPekhatayHawriz; // xot nawi bne
+out vec3 normalyRw;
+out vec3 tiryBoRwnaky;
+out vec3 tiryBoKamera;
+
+uniform mat4 gorinyMatrix;
+uniform mat4 RunakkrdnawaySinamaie;
+uniform mat4 bininiMatrix;
+uniform vec3 shwenyrwnaky;
+void main(){
+
+vec4 shwenydnyaka = gorinyMatrix * vec4(shwenakan,1.0);
+gl_Position =RunakkrdnawaySinamaie * bininiMatrix * shwenydnyaka; // Capital P gl_Position <<<<<
+gaiandnyPekhatayHawriz = pekhatayHawriz;
+
+normalyRw = (gorinyMatrix * vec4(normal,0.0)).xyz;
+tiryBoRwnaky = shwenyrwnaky-shwenydnyaka.xyz;
+tiryBoKamera = (inverse(bininiMatrix) * vec4(0.0,0.0,0.0,1.0)).xyz - shwenydnyaka.xyz;
+
+}

@@ -1,0 +1,12 @@
+#version 400 core
+
+in vec2 gaiandnyPekhatayHawriz;
+
+out vec4 out_Color;
+
+uniform sampler2D nmwnayPekhata;
+void main(){
+
+  out_Color = texture(nmwnayPekhata,gaiandnyPekhatayHawriz);
+
+}

@@ -1,0 +1,18 @@
+#version 400 core
+
+in vec3 shwenakan;
+in vec2 pekhatayHawriz;
+
+out vec3 colour;
+out vec2 gaiandnyPekhatayHawriz; // xot nawi bne
+
+uniform mat4 gorinyMatrix;
+uniform mat4 RunakkrdnawaySinamaie;
+void main(){
+
+gl_Position =RunakkrdnawaySinamaie*gorinyMatrix* vec4(shwenakan,1.0); // ba Capital P binwsa >>>gl_Position <<<<<
+gaiandnyPekhatayHawriz = pekhatayHawriz;
+colour =vec3(shwenakan.x+0.5,0.0,shwenakan.y+0.5);
+
+
+}

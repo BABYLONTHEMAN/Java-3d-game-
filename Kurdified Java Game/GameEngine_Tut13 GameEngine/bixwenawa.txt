@@ -1,0 +1,1 @@
+am packaga ta tutorialy 13 daqay 1-2 y tyaya fragmentSHaderakam goriwa bo 0.2 wa CULL_FACE'a kam krdwa 2 derakay ka la renderkrn aynwsit.

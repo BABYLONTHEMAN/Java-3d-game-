@@ -1,0 +1,33 @@
+#version 400 core
+
+in vec2 gaiandnyPekhatayHawriz;
+in vec3 normalyRw;
+in vec3 tiryBoRwnaky;
+in vec3 tiryBoKamera;
+
+out vec4 out_Color;
+
+uniform sampler2D nmwnayPekhata;
+uniform vec3 rangyrwnaky;
+uniform float kzbwnyRangdanawa;
+uniform float rangdanawa;
+void main(){
+
+	vec3 yakayNormal = normalize(normalyRw);
+	vec3 yakayrwnakyTir = normalize(tiryBoRwnaky);
+	
+	float nDotakayYakam = dot(yakayNormal,yakayrwnakyTir);
+	float rwnakyBrightnesssaka = max(nDotakayYakam,0.2);
+	vec3 kzbwn = rwnakyBrightnesssaka * rangyrwnaky;
+	
+	vec3 yakaytiryBoKamera=normalize(tiryBoKamera);
+	vec3 arastayRwnaky = -yakayrwnakyTir;
+	vec3 RangDanawayArrastayRwnaky=reflect(arastayRwnaky,yakayNormal);
+	
+	float amilyRangdanawaka =dot(RangDanawayArrastayRwnaky,yakaytiryBoKamera);
+	amilyRangdanawaka = max(amilyRangdanawaka,0.0);
+	float amilyKzbwn = pow(amilyRangdanawaka,kzbwnyRangdanawa);
+	vec3 rangdanawayAxir = amilyKzbwn * rangdanawa * rangyrwnaky;
+  out_Color =vec4(kzbwn,1.0)* texture(nmwnayPekhata,gaiandnyPekhatayHawriz)+ vec4(rangdanawayAxir,1.0);
+
+}
